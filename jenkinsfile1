@@ -1,27 +1,39 @@
 pipeline {
 	agent { label 'master' }
-	stages {
+	stage {
 		stage('Build') {
-		    steps {
-		    	sh 'echo this is my first stage in pipeline'
-			sh 'ls -lrt'
+			parallel {
+				stage('Build1') {
+					steps {
+						sh 'echo this is my first stage in pipeline'
+						sh 'ls -lrt'
+						sh 'sleep 5'
+					}
+				}
+				stage('Build2') {
+					steps {
+						sh 'echo this is my first stage in pipeline'
+						sh 'ls -lrt'
+						sh 'sleep 5'
+					}
+				}
 			}
-		}
-	
+		}	
 		stage('Test') {
 			steps {
-				sh 'echo this is my first stage in pipeline'
-				sh 'du -sh'
+				sh '''
+					sleep 5
+					du -h
+				   '''
 			}
 		}
-	
-
 		stage('Deploy') {
 			steps {
-                                sh 'echo this is my first stage in pipeline'
-				sh 'du -sh'
-
-			}
+				sh '''
+				sleep 5
+				du -sh
+				   '''
+ 			}
 		}
 	}
 }
