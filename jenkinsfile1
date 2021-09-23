@@ -5,13 +5,14 @@ pipeline {
 		    steps {
 		    	sh 'echo this is my first stage in pipeline'
 			sh 'ls -lrt'
+			}
 		}
-	}
 	
-	stage('Test') {
-		steps {
-			sh 'echo this is my first stage in pipeline'
-			sh 'du -sh'
+		stage('Test') {
+			steps {
+				sh 'echo this is my first stage in pipeline'
+				sh 'du -sh'
+			}
 		}
 	}
 }
