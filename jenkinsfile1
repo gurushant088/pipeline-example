@@ -14,5 +14,14 @@ pipeline {
 				sh 'du -sh'
 			}
 		}
+	
+
+		stage('Deploy') {
+			steps {
+                                sh 'echo this is my first stage in pipeline'
+				sh 'du -sh'
+
+			}
+		}
 	}
 }
