@@ -8,8 +8,8 @@ pipeline {
 			stage('Build') {
 				steps {
 					echo "NAME ${params.NAME}"
-					sh "echo ${params.NAME}
-	i				sh 'sleep 5'
+					sh "echo ${params.NAME}"
+					sh 'sleep 5'
 				}
 			}
 			
