@@ -1,30 +1,24 @@
 pipeline {
 	agent { label 'master' }
+	parameters {
+		string(name: 'NAME', description: 'Enter your name here')
+	}
 	stages {
 		stage('Build') {
-			parallel {
-				stage('Build1') {
-					steps {
-						sh 'echo this is my first stage in pipeline'
-						sh 'ls -lrt'
-						sh 'sleep 5'
-					}
-				}
-				stage('Build2') {
-					steps {
-						sh 'echo this is my first stage in pipeline'
-						sh 'ls -lrt'
-						sh 'sleep 5'
-					}
-				}
+			stage('Build') {
+				steps {
+				echo "NAME ${params.NAME}"
+				sh "echo $(params.NAME}
+				sh 'sleep 5'
 			}
-		}	
+		}
+			
 		stage('Test') {
 			steps {
 				sh '''
-					sleep 5
-					du -h
-				   '''
+				sleep 5
+				du -h
+				'''
 			}
 		}
 		stage('Deploy') {
@@ -32,7 +26,7 @@ pipeline {
 				sh '''
 				sleep 5
 				du -sh
-				   '''
+				'''
  			}
 		}
 	}
