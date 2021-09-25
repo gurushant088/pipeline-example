@@ -5,30 +5,28 @@ pipeline {
 	}
 	stages {
 		stage('Build') {
-			stage('Build') {
-				steps {
-					echo "NAME ${params.NAME}"
-					sh "echo ${params.NAME}"
-					sh 'sleep 5'
-				}
+			steps {
+				echo "NAME ${params.NAME}"
+				sh "echo ${params.NAME}"
+				sh 'sleep 5'
 			}
-			
-			stage('Test') {
-				steps {
-					sh '''
-					sleep 5
-					du -h
-					'''
-				}
+		}
+		stage('Test') {
+			steps {
+				sh '''
+				sleep 5
+				du -h
+				'''
 			}
-			stage('Deploy') {
-				steps {
-					sh '''
-					sleep 5
-					du -sh
-					'''
- 				}
-			}
+		}
+		stage('Deploy') {
+			steps {
+				sh '''
+				sleep 5
+				du -sh
+				'''
+ 			}
 		}
 	}
 }
+
