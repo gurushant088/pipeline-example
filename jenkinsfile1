@@ -9,7 +9,7 @@ pipeline {
 				steps {
 					echo "NAME ${params.NAME}"
 					sh "echo ${params.NAME}
-					sh 'sleep 5'
+	i				sh 'sleep 5'
 				}
 			}
 			
@@ -30,3 +30,4 @@ pipeline {
  				}
 			}
 		}
+	}
